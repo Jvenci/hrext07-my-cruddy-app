@@ -44,32 +44,40 @@ $(document).ready(function(){
 
 
   // update db
-    $('.btn-update').on('click', function(e) {
-      var nameData = $('.input-name').val();
-      var phoneData = $('.input-phone').val();
-      var addressData = $('.input-address').val();
-      var emailData = $('.input-email').val();
+  $('.btn-update').on('click', function() {
+    var nameData = $('.input-name').val();
+    var phoneData = $('.input-phone').val();
+    var addressData = $('.input-address').val();
+    var emailData = $('.input-email').val();
 
-      var inputArr = [nameData, phoneData, addressData, emailData];
-      var personInfo = JSON.parse(localStorage.getItem(nameData))
-      var properties = Object.keys(personInfo)
+    var inputArr = [nameData, phoneData, addressData, emailData];
+    var personInfo = JSON.parse(localStorage.getItem(nameData))
+    var properties = Object.keys(personInfo)
 
-      for (var i = 0; i < inputArr.length; i++) {
-        if (inputArr[i] !== '') {
-          personInfo[properties[i]] = inputArr[i];
-          
-        }
+    for (var i = 0; i < inputArr.length; i++) {
+      if (inputArr[i] !== '') {
+        personInfo[properties[i]] = inputArr[i];
+        
       }
+    }
 
-      localStorage.setItem(nameData, JSON.stringify(personInfo))
-    })
+    localStorage.setItem(nameData, JSON.stringify(personInfo))
+    $('.input-name').val('');
+    $('.input-phone').val('');
+    $('.input-address').val('');
+    $('.input-email').val('');
+  });
 
   // delete item
-  $('.btn-delete').on('click', function(e){
+  $('.btn-delete').on('click', function(){
+    var nameData = $('.input-name').val();
+    var phoneData = $('.input-phone').val();
+    var addressData = $('.input-address').val();
+    var emailData = $('.input-email').val();
     // console.log(e.currentTarget.dataset.keyvalue);
      //var nameData = $('.input-name').val();
     localStorage.removeItem(nameData);
-    $('.container-data').text('');
+    //$('.container-data').text('');
     $('.input-name').val('');
     $('.input-phone').val('');
     $('.input-address').val('');
