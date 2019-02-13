@@ -1,4 +1,10 @@
 .container-main {
 	text-align: center;
+
+}
+
+#contacts-table {
+	margin: auto;
+	margin-top: 50px;
 	
 }

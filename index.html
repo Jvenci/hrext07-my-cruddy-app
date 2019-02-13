@@ -28,17 +28,26 @@ container for the response-feedback (start with alert)
 <div class="container-main">
   <header>Address Book</header>
   <div class="container-form">
-    <input type="text" class="input-name" placeholder="enter Name">
+    <input type="text" class="input-firstName" placeholder="enter First Name">
+    <input type="text" class="input-lastName" placeholder="enter Last Name">
     <input type="text" class="input-phone" placeholder="enter Phone number">
-    <input type="text" class="input-address" placeholder="enter address">
-    <input type="text" class="input-email" placeholder="enter e-mail">
+    <input type="text" class="input-address" placeholder="enter Address">
+    <input type="text" class="input-email" placeholder="enter E-mail">
     <button class="btn-add">Submit</button>
     <button class="btn-update">Update</button>
     <button class="btn-delete">Delete</button>
-    <button class="btn-clear">Clear</button>
   </div>
-  <div class="container-data"></div>
-</div>
+  <!-- <div class="container-data"></div> --> 
+    <table id="contacts-table">
+      <tr id="contacts-head">
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+      </tr>
+    </table>
+<!-- </div> -->
 
 </body>
 </html>
