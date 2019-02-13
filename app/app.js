@@ -34,7 +34,28 @@ $(document).ready(function(){
     var personObj = contactConstructor(firstName, lastName, phoneData, addressData, emailData)
     
     localStorage.setItem(localStorage.length + 1,JSON.stringify(personObj));
-    
+
+    // var tableAdd = function(personObj) {
+    //   var $tr = document.createElement("tr"), $td, key
+    //   for (key in personObj) {
+    //     if (personObj.hasOwnProperty(key)) {
+    //       $td = document.createElement("td");
+    //       $td.appendChild(document.createTextNode(personObj[key]));
+    //       $tr.appendChild($td);
+    //     }
+    //   }
+    //     $td = document.createElement("td");
+    //     $td.innerHTML = '<a data-op="edit" data-id="'+ entry.id +'">Edit</a> | <a data-op="remove" data-id="'+ entry.id +'">Remove</a>';
+    //     $tr.appendChild($td);
+    //     $tr.setAttribute("id", "entry-"+ entry.id);
+    //     Contacts.$table.appendChild($tr);
+    // },
+    // }
+
+    // tableAdd(personObj);
+
+
+
     $('.container-form').children('input').val('')
   });
 
