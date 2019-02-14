@@ -4,6 +4,19 @@ interact with DOM
 interact with localstorage
 
  */
+$(window).on('load', function(){
+    var $tr = document.createElement("tr");
+      var $table = $('#contacts-table');
+      for (var key in localStorage) {
+        var parsedPerson = JSON.parse(localStorage[key])
+        if (parsedPerson.hasOwnProperty(key)) {
+          var $td = document.createElement("td");
+          $td.append(document.createTextNode(parsedPerson[key]));
+          $tr.append($td);
+        }
+      }
+      $table.append($tr);
+});
 
 $(document).ready(function(){
   // this is where we jquery
@@ -12,6 +25,7 @@ $(document).ready(function(){
 
   var contactConstructor = function(fN, lN,  phone, address, email) {
     var person = { 
+      id: localStorage.length + 1,
       firstName: fN,
       lastName: lN,
       phone: phone,
@@ -34,25 +48,26 @@ $(document).ready(function(){
     var personObj = contactConstructor(firstName, lastName, phoneData, addressData, emailData)
     
     localStorage.setItem(localStorage.length + 1,JSON.stringify(personObj));
+    
+    var tableAdd = function(personObj) {
+      var $tr = document.createElement("tr");
+      var $table = $('#contacts-table');
+      for (var key in personObj) {
+        if (personObj.hasOwnProperty(key)) {
+          var $td = document.createElement("td");
+          $td.append(document.createTextNode(personObj[key]));
+          $tr.append($td);
+        }
+      }
+      //   $td = document.createElement("td");
+      //   $td.innerHTML = '<a data-op="edit" data-id="'+ entry.id +'">Edit</a> | <a data-op="remove" data-id="'+ entry.id +'">Remove</a>';
+      //   $tr.appendChild($td);
+      //   $tr.setAttribute("id", "entry-"+ entry.id);
+        $table.append($tr);
+      }
+    //}
 
-    // var tableAdd = function(personObj) {
-    //   var $tr = document.createElement("tr"), $td, key
-    //   for (key in personObj) {
-    //     if (personObj.hasOwnProperty(key)) {
-    //       $td = document.createElement("td");
-    //       $td.appendChild(document.createTextNode(personObj[key]));
-    //       $tr.appendChild($td);
-    //     }
-    //   }
-    //     $td = document.createElement("td");
-    //     $td.innerHTML = '<a data-op="edit" data-id="'+ entry.id +'">Edit</a> | <a data-op="remove" data-id="'+ entry.id +'">Remove</a>';
-    //     $tr.appendChild($td);
-    //     $tr.setAttribute("id", "entry-"+ entry.id);
-    //     Contacts.$table.appendChild($tr);
-    // },
-    // }
-
-    // tableAdd(personObj);
+    tableAdd(personObj);
 
 
 
