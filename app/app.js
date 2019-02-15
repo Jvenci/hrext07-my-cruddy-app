@@ -17,7 +17,7 @@ $(window).on('load', function() {
         var $td = document.createElement("td");
         $td.setAttribute("class", prop);
         if (prop === 'action') {
-          $td.innerHTML = '<button class="action-btn" id="btn-edit-' + personObj.id + '">Edit</button> | <button class="action-btn" id="btn-delete-' + personObj.id + '">Remove</button>';
+          $td.innerHTML = '<a class="action-btn" id="btn-edit-' + personObj.id + '">Edit</a> | <a class="action-btn" id="btn-delete-' + personObj.id + '">Remove</a>';
           $tr.appendChild($td);
           $tr.setAttribute("id", "entry-" + personObj.id);
         } else {
@@ -67,7 +67,7 @@ $(document).ready(function() {
         var $td = document.createElement("td");
         $td.setAttribute("class", key);
         if (key === 'action') {
-          $td.innerHTML = '<button class="action-btn" id="btn-edit-' + personObj.id + '">Edit</button> | <button class="action-btn" id="btn-delete-' + personObj.id + '">Remove</button>';
+          $td.innerHTML = '<a class="action-btn" id="btn-edit-' + personObj.id + '">Edit</a> | <a class="action-btn" id="btn-delete-' + personObj.id + '">Remove</a>';
           $tr.appendChild($td);
           $tr.setAttribute("id", "entry-" + personObj.id);
         } else {
@@ -89,12 +89,12 @@ $(document).ready(function() {
       localStorage.removeItem(Number(id))
       window.location.reload();
     } else if (action === 'edit') {
-      $('#entry-' + id + ' .action').prepend('<button class="action-btn" id="btn-edit-submit-' + id + '">Submit</button> | ')
-      $('#entry-' + id + ' .firstName').html('<input type="text" id="edit-input-firstName-' + id + '">');
-      $('#entry-' + id + ' .lastName').html('<input type="text" id="edit-input-lastName-' + id + '">');
-      $('#entry-' + id + ' .phone').html('<input type="text" id="edit-input-phone-' + id + '">');
-      $('#entry-' + id + ' .address').html('<input type="text" id="edit-input-address-' + id + '">');
-      $('#entry-' + id + ' .email').html('<input type="text" id="edit-input-email-' + id + '">');
+      $('#entry-' + id + ' .action').prepend('<a class="action-btn" id="btn-edit-submit-' + id + '">Submit</a> | ')
+      $('#entry-' + id + ' .firstName').html('<input type="text" class="form-control" id="edit-input-firstName-' + id + '">');
+      $('#entry-' + id + ' .lastName').html('<input type="text" class="form-control" id="edit-input-lastName-' + id + '">');
+      $('#entry-' + id + ' .phone').html('<input type="text" class="form-control" id="edit-input-phone-' + id + '">');
+      $('#entry-' + id + ' .address').html('<input type="text" class="form-control" id="edit-input-address-' + id + '">');
+      $('#entry-' + id + ' .email').html('<input type="text" class="form-control" id="edit-input-email-' + id + '">');
       
       var firstName, lastName, phone, address, email; 
       
@@ -129,7 +129,7 @@ $(document).ready(function() {
         }
         if (phoneData !== personObj['phone'] && phoneData !== '') {
           personObj['phone'] = phoneData;
-          console.log(true)
+   
         }
         if (addressData !== personObj['address'] && addressData !== '') {
           personObj['address'] = addressData;
@@ -139,7 +139,7 @@ $(document).ready(function() {
         }
 
         localStorage.setItem(id, JSON.stringify(personObj));
-        console.log(personObj)
+     
 
         window.location.reload();
 

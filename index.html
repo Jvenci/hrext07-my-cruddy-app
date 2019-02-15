@@ -31,13 +31,16 @@ container for the response-feedback (start with alert)
 <div class="container-main">
   <header><h1>Contact Book</h1></header>
   <div class="container-form">
-    <input type="text" class="input-firstName" placeholder="enter First Name">
-    <input type="text" class="input-lastName" placeholder="enter Last Name">
-    <input type="text" class="input-phone" placeholder="enter Phone number">
-    <input type="text" class="input-address" placeholder="enter Address">
-    <input type="text" class="input-email" placeholder="enter E-mail">
-    <button class="btn-add">Submit</button>
-   
+    <div class="row">
+      <div class="col-sm-6"><input type="text" class="form-control input-firstName" placeholder="First Name"></div>
+      <div class="col-sm-6"><input type="text" class="form-control input-lastName" placeholder="Last Name"></div>
+    </div>    
+    <div class="row">
+      <div class="col-sm-12"><input type="text" class="form-control input-phone" placeholder="Phone number"></div>
+      <div class="col-sm-12"><input type="text" class="form-control input-address" placeholder="Address"></div>
+      <div class="col-sm-12"><input type="text" class="form-control input-email" placeholder="E-mail"></div>
+    </div>
+    <button class="btn btn-primary btn-add">Submit</button>
   </div>
   <div class="container-data">
     <table id="contacts-table">
